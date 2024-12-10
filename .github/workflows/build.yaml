@@ -1,0 +1,34 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          registry: docker.io
+          username: emteeoh
+          password: ${{ secrets.DOCKERPAT }}
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: |
+            emteeoh/alpine4cicd:latest
+            emteeoh/alpine4cicd:${{ github.sha }}
+          platforms: linux/amd64,linux/arm64
+          file: ./Dockerfile
+          context: .
+          cache-from: type=local
+          cache-to: type=local
