@@ -8,7 +8,19 @@ ARG VERSION
 RUN apk update
 
 # Install gnupg
-RUN apk add --update --virtual .deps --no-cache gnupg && \
+RUN apk add --update --virtual .deps --no-cache gnupg
+
+# Install grep
+RUN apk add --no-cache grep
+
+# Install sha256sum
+RUN apk add --no-cache sha256sum
+
+# Install wget
+RUN apk add --no-cache wget
+
+# Install unzip
+RUN apk add --no-cache unzip
 
 # Download Terraform
 RUN cd /tmp && \
