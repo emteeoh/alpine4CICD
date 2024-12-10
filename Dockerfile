@@ -31,7 +31,7 @@ RUN cd /tmp && \
 # validate checksum
 RUN cd /tmp && \
     wget -qO- https://www.hashicorp.com/.well-known/pgp-key.txt | gpg --import && \
-    gpg --verify ${PRODUCT}_${VERSION}_SHA256SUMS.sig ${PRODUCT}_${VERSION}_SHA256SUMS
+    gpg --verify ${PRODUCT}_${VERSION}_SHA256SUMS.sig ${PRODUCT}_${VERSION}_SHA256SUMS && \
     grep ${PRODUCT}_${VERSION}_linux_amd64.zip ${PRODUCT}_${VERSION}_SHA256SUMS | sha256sum -c
 
 # install terraform and cleanup
