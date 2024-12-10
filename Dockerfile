@@ -14,7 +14,7 @@ RUN apk add --update --virtual .deps --no-cache gnupg
 RUN apk add --no-cache grep
 
 # Install sha256sum
-RUN apk add --no-cache sha256sum
+RUN apk add --no-cache outils-sha256
 
 # Install wget
 RUN apk add --no-cache wget
