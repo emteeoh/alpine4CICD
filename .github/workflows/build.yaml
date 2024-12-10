@@ -30,7 +30,7 @@ jobs:
           tags: |
             emteeoh/alpine4cicd:latest
             emteeoh/alpine4cicd:${{ github.sha }}
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           file: ./Dockerfile
           context: .
 
