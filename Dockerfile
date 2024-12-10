@@ -18,4 +18,4 @@ RUN apk add --update --virtual .deps --no-cache gnupg && \
     grep ${PRODUCT}_${VERSION}_linux_amd64.zip ${PRODUCT}_${VERSION}_SHA256SUMS | sha256sum -c && \
     unzip /tmp/${PRODUCT}_${VERSION}_linux_amd64.zip -d /tmp && \
     mv /tmp/${PRODUCT} /usr/local/bin/${PRODUCT} && \
-    rm -f /tmp/${PRODUCT}_${VERSION}_linux_amd64.zip ${PRODUCT}_${VERSION}_SHA256SUMS ${VERSION}/${PRODUCT}_${VERSION}_SHA256SUMS.sig && \
+    rm -f /tmp/${PRODUCT}_${VERSION}_linux_amd64.zip ${PRODUCT}_${VERSION}_SHA256SUMS ${VERSION}/${PRODUCT}_${VERSION}_SHA256SUMS.sig
